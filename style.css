@@ -11,6 +11,7 @@ body {
     align-items: center;
     border: 1px solid black;
     height: 100vh;
+    background-color: #e7c6ff;
 }
  
 
@@ -63,7 +64,7 @@ button {
     font-size: 35px;
     border-radius: 10px;
     background-color: #c08497;
-    color: white;
+    color: aliceblue;
     font-weight: bold;
     border: none;
 }
@@ -102,4 +103,8 @@ button {
 
 button:hover {
     background-color: #cdb4db;
+}
+
+.equal {
+    width: 170px;
 }
