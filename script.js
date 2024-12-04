@@ -29,8 +29,9 @@ function operate(x, operator, y) {
 
 };
 
-function populateDisplay() {
-    
+function populateDisplay(text) {
+    runningDisplay.innerText += text;
+    const math = text;
 };
 
 const input = document.querySelector(".input");
@@ -39,16 +40,22 @@ const operatorBtns = document.querySelectorAll(".operator");
 const equalBtn = document.querySelector(".equal");
 const clearBtn = document.querySelector(".clear");
 const deleteBtn = document.querySelector(".delete");
+const previousDisplay = document.querySelector(".previous")
+const runningDisplay = document.querySelector(".running");
 
 numberBtns.forEach(button => {
     button.addEventListener("click", () => {
         let text = button.innerText;
-        populateDisplay();
+        populateDisplay(text);
     })
 })
-operatorBtns.forEach(button => {
-    button.addEventListener("click", () => {
-        let text = button.innerText;
-        populateDisplay();
-    })
+
+clearBtn.addEventListener("click", () => {
+    runningDisplay.textContent = "";
+    previousDisplay.textContent = "";
 })
+
+deleteBtn.addEventListener("click", () => {
+    runningDisplay.innerText = runningDisplay.innerText.slice(0,-1); // removing last char of string
+})
+
