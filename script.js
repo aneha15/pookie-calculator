@@ -1,37 +1,13 @@
-add = function addition(a, b) {
-    return a + b;
-};
 
-subract = function subtraction(a, b) {
-    return a - b;
-};
 
-multiply = function multiplication(a, b) {
-    return a * b;
-}
-
-divide = function division(a, b) {
-    return a / b;
-};
-
-function operate(x, operator, y) {
-    if (operator == "+") {
-        add(x, y);
-    } else if (operator == "−") {
-        subtract(x, y);
-    } else if (operator == "x") {
-        multiply(x, y);
-    } else if (operator == "÷") {
-        divide(x, y);
-    } else {
-        return 0;  // fix for % later
-    }
-
-};
-
-function populateDisplay(text) {
+function populateBothDisplay(text) {
     runningDisplay.innerText += text;
-    const math = text;
+    previousDisplay.innerHTML += text;
+};
+
+function populatePrevDisplay(text) {
+    previousDisplay.innerHTML += text;
+    runningDisplay.innerHTML = "";
 };
 
 const input = document.querySelector(".input");
@@ -46,7 +22,7 @@ const runningDisplay = document.querySelector(".running");
 numberBtns.forEach(button => {
     button.addEventListener("click", () => {
         let text = button.innerText;
-        populateDisplay(text);
+        populateBothDisplay(text);
     })
 })
 
@@ -59,3 +35,18 @@ deleteBtn.addEventListener("click", () => {
     runningDisplay.innerText = runningDisplay.innerText.slice(0,-1); // removing last char of string
 })
 
+equalBtn.addEventListener("click", () => {
+    let b = runningDisplay.innerText;
+    runningDisplay.textContent = "";
+    //
+});
+
+operatorBtns.forEach(button => {
+    button.addEventListener("click", () => {
+        let operator = button.innerText;
+        populatePrevDisplay(operator);
+        // let a = runningDisplay.innerText;
+        // previousDisplay.innerText += a + " " + operator;
+        // runningDisplay.textContent = "";
+    });
+})
