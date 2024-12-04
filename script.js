@@ -1,4 +1,41 @@
+function operate() {
+    const text = previousDisplay.innerText;
+    console.log(text);
+    const arr = text.split(" ");
+    
+    const a = +arr[0];
+    const b = +arr[2];
+    const operator = arr[1];
+    console.log(a);
+    console.log(b);
+    console.log(operator);
+    
+    if (arr.length !== 3) {
+        console.log(arr)
+        return runningDisplay.textContent = "Math Error";
+    }
+    
 
+    let ans;
+    switch (operator) {
+        case "+":
+            ans = a + b;
+            break;
+        case "−":
+            ans = a - b;
+            break;
+        case "x":
+            ans = a * b;
+            break;
+        case "÷":
+            ans = a / b;
+            break;
+        case "^":
+            ans = a ** b;
+    }
+    runningDisplay.textContent = previousDisplay.textContent = ans;
+
+}
 
 function populateBothDisplay(text) {
     runningDisplay.innerText += text;
@@ -32,21 +69,19 @@ clearBtn.addEventListener("click", () => {
 })
 
 deleteBtn.addEventListener("click", () => {
-    runningDisplay.innerText = runningDisplay.innerText.slice(0,-1); // removing last char of string
+    runningDisplay.innerText = runningDisplay.innerText.slice(0, -1); // removing last char of string
 })
 
 equalBtn.addEventListener("click", () => {
     let b = runningDisplay.innerText;
     runningDisplay.textContent = "";
-    //
+    operate();
 });
 
 operatorBtns.forEach(button => {
     button.addEventListener("click", () => {
         let operator = button.innerText;
-        populatePrevDisplay(operator);
-        // let a = runningDisplay.innerText;
-        // previousDisplay.innerText += a + " " + operator;
-        // runningDisplay.textContent = "";
+        populatePrevDisplay(` ${operator} `);
+
     });
 })
