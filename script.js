@@ -2,36 +2,41 @@ function operate() {
     const text = previousDisplay.innerText;
     console.log(text);
     const arr = text.split(" ");
-    
+
     const a = +arr[0];
     const b = +arr[2];
     const operator = arr[1];
     console.log(a);
     console.log(b);
     console.log(operator);
-    
+
     if (arr.length !== 3) {
         console.log(arr)
         return runningDisplay.textContent = "Math Error";
     }
-    
+
 
     let ans;
     switch (operator) {
         case "+":
-            ans = a + b;
+            ans = Math.round((a + b) * 100) / 100;
             break;
         case "−":
-            ans = a - b;
+            ans = Math.round((a - b) * 100) / 100;
             break;
         case "x":
-            ans = a * b;
+            ans = Math.round(a * b * 100) / 100;
             break;
         case "÷":
-            ans = a / b;
+            if (b === 0) {
+                ans = "🙄";
+            } else {
+                ans = Math.round(a * 100 / b) / 100;
+            }
             break;
-        case "^":
-            ans = a ** b;
+        default: 
+            ans = a;
+    
     }
     runningDisplay.textContent = previousDisplay.textContent = ans;
 

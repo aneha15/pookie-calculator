@@ -1,8 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/calculator');
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Calculator';
 }
 
 body {
@@ -44,7 +46,7 @@ body {
     height: 200px;
     display: flex;
     flex-direction: column;
-    color:aliceblue;
+    color: white;
     font-weight: 500;
     opacity: 75%;
 }
@@ -92,7 +94,7 @@ button {
     display: flex;
     align-items: flex-end;
     padding: 15px;
-    word-spacing: 15px;
+    word-spacing: 5px;
 }
 
 .display .running {
