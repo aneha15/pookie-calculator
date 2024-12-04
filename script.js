@@ -10,8 +10,11 @@ function operate() {
     console.log(b);
     console.log(operator);
 
+    if(arr.length === 1) {
+        return runningDisplay.textContent = a;
+    }
+
     if (arr.length !== 3) {
-        console.log(arr)
         return runningDisplay.textContent = "Math Error";
     }
 
